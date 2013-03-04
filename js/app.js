@@ -3,9 +3,10 @@
 	'use strict';
 
 	var Library = can.Model({
-		findAll: "GET /libraries",
-		create: 'POST /libraries',
-		destroy: 'DELETE /libraries/{id}'
+		findAll: 	"GET /libraries",
+		create: 	'POST /libraries',
+		update: 	'PUT /libraries/{id}',
+		destroy: 	'DELETE /libraries/{id}'
 	}, {});
 
 	var Control = can.Control({
@@ -49,17 +50,26 @@
 
 		'.btn_edit click': function (ele, ev) {
 			var library = can.data(ele, 'library');
-			this.state.attr('selected', library);			
+			library.backup();
+			this.state.attr('selected', library);
 		},
 
 		'.btn_save click': function (ele, ev) {
 			var self = this;
 			var val = this.$input.val();
+			// get the currently selected model
 			var model = this.state.attr('selected');
+			// store if it is new
+			var isNew = model.isNew();
+			// update the attributes
 			model.attr('name', val);
+			// save it
 			model.save(function (library) {
-				self.libraries.push(library);
-				self.$input.val('');
+				if (isNew) {
+					// if new then append it to the list
+					self.libraries.push(library);
+				}
+
 				self.resetSelected();
 			});
 		},
@@ -73,7 +83,13 @@
 		},
 
 		'.btn_cancel_edit click': function (ele, ev) {
+			this.state.attr('selected').restore();
 			this.resetSelected();
+		},
+
+		'.input_name keyup': function (ele, ev) {
+			var val = ele.val();
+			this.state.attr('selected.name', val);
 		}
 
 	});
