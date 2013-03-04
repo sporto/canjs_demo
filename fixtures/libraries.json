@@ -2,46 +2,55 @@
 	{
 	  "id" : 1,
 	  "name" : "CanJS",
-	  "web" : "http://canjs.us"
+	  "web" : "http://canjs.us",
+		"logo": "img/can.png"
 	},
 	{
 	  "id" : 2,
 	  "name" : "AngularJS",
-	  "web" : "http://angularjs.org/"
+	  "web" : "http://angularjs.org/",
+		"logo": "img/angular.png"
 	}, 
 	{
 	  "id" : 3,
 	  "name" : "jQuery",
-	  "web" : "http://jquery.com"
+	  "web" : "http://jquery.com",
+		"logo": "img/jquery.png"
 	},
 	{
 	  "id" : 4,
 	  "name" : "EmberJS",
-	  "web" : "http://emberjs.com/"
+	  "web" : "http://emberjs.com/",
+		"logo": "img/ember.png"
 	},
 	{
 	  "id" : 5,
-	  "name" : "Dojo",
-	  "web" : "http://dojo.com"
+	  "name" : "Mootools",
+	  "web" : "http://mootools.net/",
+		"logo": "img/mootools.png"
 	},
 	{
 	  "id" : 6,
 	  "name" : "YUI",
-	  "web" : "http://yui.com"
+	  "web" : "http://yui.com",
+		"logo": "img/yui.png"
 	},  
 	{
 	  "id" : 7,
 	  "name" : "Zepto",
-	  "web" : "http://zepto.com"
+	  "web" : "http://zepto.com",
+		"logo": "img/zepto.png"
 	},
 	{
 	  "id" : 8,
 	  "name" : "Backbone",
-	  "web" : "http://backbonejs.org/"
+	  "web" : "http://backbonejs.org/",
+		"logo": "img/backbone.png"
 	},
 	{
 	  "id" : 9,
 	  "name" : "Underscore",
-	  "web" : "http://underscorejs.org/"
+	  "web" : "http://underscorejs.org/",
+		"logo": "img/underscore.png"
 	}
 ]

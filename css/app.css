@@ -1,0 +1,10 @@
+table .th{
+	width: 85px;
+	height: 55px;
+
+}
+table img{
+	margin: 0 auto;
+	max-width: 80px;
+	max-height: 50px;
+}
