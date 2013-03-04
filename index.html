@@ -13,7 +13,7 @@
 
 			<div class="panel">
 				{{^state.isEditing}}
-					<h4>Create new</h4>
+					<h4>Add new</h4>
 				{{/state.isEditing}}
 
 				{{#state.isEditing}}
@@ -37,7 +37,7 @@
 					{{#libraries}}
 					<tr>
 						<td>{{name}}</td>
-						<td>{{url}}</td>
+						<td>{{web}}</td>
 						<td>
 							<a {{data 'library'}} href="#" class="btn_edit">Edit</a>
 							<a {{data 'library'}} href="#" class="btn_remove">Remove</a>

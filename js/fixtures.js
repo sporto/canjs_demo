@@ -3,6 +3,7 @@
 	can.fixture("/libraries", "fixtures/libraries.json");
 	// create 
 	can.fixture('POST /libraries', function(original, respondWith, settings){
+		if (original.id == null) original.id = 17227;
 		respondWith(original);
 	});
 	// update

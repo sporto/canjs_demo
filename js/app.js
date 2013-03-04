@@ -39,20 +39,46 @@
 				self.libraries.push.apply(self.libraries, libraries);
 			});
 
+			// listen for when the selected model is changed
+			// reset the inputs
 			this.state.bind('selected', function (oldVal, newVal) {
 				self.$input.val(newVal.attr('name'));
 			});
+
 		},
+
 
 		resetSelected: function () {
 			this.state.attr('selected', new Library());
+			can.route.attr({id: '', action: ''})
+		},
+
+		'route': function() {
+			// matches empty hash, #, or #!
+			console.log('empty rout')
+		},
+
+		'libraries/:id/:action route': function(data) {
+			// matches routes like #!libraries/5/edit
+			// find the element with that id and selected
 		},
 
 		'.btn_edit click': function (ele, ev) {
+			// get the clicked model from the DOM
 			var library = can.data(ele, 'library');
+
+			// flag the model as dirty
 			library.backup();
+
+			// set this as the currently selected model
 			this.state.attr('selected', library);
+
+			// set the url
+			can.route.attr({id: library.attr('id'), action: 'edit'});
+
+			return false;
 		},
+
 
 		'.btn_save click': function (ele, ev) {
 			var self = this;
@@ -72,7 +98,9 @@
 
 				self.resetSelected();
 			});
+			return false;
 		},
+
 
 		'.btn_remove click': function (ele, ev) {
 			// get the model from the clicked element and destroy it
@@ -82,10 +110,13 @@
 			return false;
 		},
 
+
 		'.btn_cancel_edit click': function (ele, ev) {
 			this.state.attr('selected').restore();
 			this.resetSelected();
+			return false;
 		},
+
 
 		'.input_name keyup': function (ele, ev) {
 			var val = ele.val();
@@ -94,6 +125,8 @@
 
 	});
 
+	// setup the router pattern
+	can.route(':type/:id/:action', {type: 'libraries'});
 
 	var control = new Control('#main');
 
