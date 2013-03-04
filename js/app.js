@@ -47,36 +47,9 @@
 
 		},
 
-
-		resetSelected: function () {
-			can.route.attr({id: '', action: ''})
-		},
-
-
-		'route': function() {
-			// matches empty hash, #, or #!
-			this.state.attr('selected', new Library());
-		},
-
-
-		':type/:id/:action route': function(data) {
-			// matches routes like #!libraries/5/edit
-			var id = data.id;
-			this.edit(id);
-		},
-
-		// ui events
-
-		'.btn_edit click': function (ele, ev) {
-			// get the clicked model from the DOM
-			var library = ele.data('library');
-
-			// set the route
-			can.route.attr({type: 'libraries', id: library.attr('id'), action: 'edit'});
-
-			return false;
-		},
-
+		/*********************
+		 * Methods
+		 *********************/
 
 		edit: function (id) {
 			var library = null;
@@ -95,6 +68,26 @@
 				// set this as the currently selected model
 				this.state.attr('selected', library);
 			}
+		},
+
+
+		resetSelected: function () {
+			can.route.attr({id: '', action: ''})
+		},
+
+
+		/*********************
+		 * UI Bindings
+		 *********************/
+
+		'.btn_edit click': function (ele, ev) {
+			// get the clicked model from the DOM
+			var library = ele.data('library');
+
+			// set the route
+			can.route.attr({type: 'libraries', id: library.attr('id'), action: 'edit'});
+
+			return false;
 		},
 
 
@@ -139,6 +132,22 @@
 		'.input_name keyup': function (ele, ev) {
 			var val = ele.val();
 			this.state.attr('selected.name', val);
+		},
+
+		/*********************
+		 * Routes
+		 *********************/
+
+		'route': function() {
+			// matches empty hash, #, or #!
+			this.state.attr('selected', new Library());
+		},
+
+
+		':type/:id/:action route': function(data) {
+			// matches routes like #!libraries/5/edit
+			var id = data.id;
+			this.edit(id);
 		}
 
 	});
