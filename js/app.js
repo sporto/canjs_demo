@@ -47,6 +47,9 @@
 
 		},
 
+		/*********************
+		 * Methods
+		 *********************/
 
 		resetSelected: function () {
 			this.state.attr('selected', new Library());
