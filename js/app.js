@@ -49,34 +49,52 @@
 
 
 		resetSelected: function () {
-			this.state.attr('selected', new Library());
 			can.route.attr({id: '', action: ''})
 		},
 
+
 		'route': function() {
 			// matches empty hash, #, or #!
-			console.log('empty rout')
+			this.state.attr('selected', new Library());
 		},
 
-		'libraries/:id/:action route': function(data) {
+
+		':type/:id/:action route': function(data) {
 			// matches routes like #!libraries/5/edit
-			// find the element with that id and selected
+			var id = data.id;
+			this.edit(id);
 		},
+
+		// ui events
 
 		'.btn_edit click': function (ele, ev) {
 			// get the clicked model from the DOM
-			var library = can.data(ele, 'library');
+			var library = ele.data('library');
 
-			// flag the model as dirty
-			library.backup();
-
-			// set this as the currently selected model
-			this.state.attr('selected', library);
-
-			// set the url
-			can.route.attr({id: library.attr('id'), action: 'edit'});
+			// set the route
+			can.route.attr({type: 'libraries', id: library.attr('id'), action: 'edit'});
 
 			return false;
+		},
+
+
+		edit: function (id) {
+			var library = null;
+
+			for (var a=0; a < this.libraries.length; a++) {
+				if (this.libraries[a].id === id) {
+					library = this.libraries[a];
+					break;
+				}
+			}
+
+			if (library) {
+				// flag the model as dirty
+				library.backup();
+
+				// set this as the currently selected model
+				this.state.attr('selected', library);
+			}
 		},
 
 
