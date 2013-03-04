@@ -52,6 +52,9 @@
 			this.state.attr('selected', new Library());
 		},
 
+		/*********************
+		* UI Bindings
+		*********************/
 
 		'.btn_edit click': function (ele, ev) {
 			// get the clicked model from the DOM
