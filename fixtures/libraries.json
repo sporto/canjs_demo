@@ -25,32 +25,8 @@
 	},
 	{
 	  "id" : 5,
-	  "name" : "Mootools",
-	  "web" : "http://mootools.net/",
-		"logo": "img/mootools.png"
-	},
-	{
-	  "id" : 6,
-	  "name" : "YUI",
-	  "web" : "http://yui.com",
-		"logo": "img/yui.png"
-	},  
-	{
-	  "id" : 7,
-	  "name" : "Zepto",
-	  "web" : "http://zepto.com",
-		"logo": "img/zepto.png"
-	},
-	{
-	  "id" : 8,
 	  "name" : "Backbone",
 	  "web" : "http://backbonejs.org/",
 		"logo": "img/backbone.png"
-	},
-	{
-	  "id" : 9,
-	  "name" : "Underscore",
-	  "web" : "http://underscorejs.org/",
-		"logo": "img/underscore.png"
 	}
 ]
