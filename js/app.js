@@ -93,13 +93,10 @@
 
 		'.btn_save click': function (ele, ev) {
 			var self = this;
-			var val = this.$input.val();
 			// get the currently selected model
 			var model = this.state.attr('selected');
 			// store if it is new
 			var isNew = model.isNew();
-			// update the attributes
-			model.attr('name', val);
 			// save it
 			model.save(function (library) {
 				if (isNew) {
@@ -109,6 +106,7 @@
 
 				self.resetSelected();
 			});
+
 			return false;
 		},
 
