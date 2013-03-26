@@ -1,9 +1,9 @@
 (function () {
 		// mock the server responses
-	can.fixture("/libraries", "fixtures/libraries.json");
+	can.fixture("GET /libraries", "fixtures/libraries.json");
 	// create 
 	can.fixture('POST /libraries', function(original, respondWith, settings){
-		if (original.id == null) original.id = 17227;
+		original.id = _.random(10, 5000) ;
 		respondWith(original);
 	});
 	// update
