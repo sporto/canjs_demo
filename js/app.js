@@ -77,10 +77,14 @@
 			var self = this;
 			// get the currently selected model
 			var model = this.state.attr('selected');
+			// add the changes to the model
+			model.attr('name', this.$input.val());
 			// store if it is new
 			var isNew = model.isNew();
+
 			// save it
 			model.save(function (library) {
+				console.log(library)
 				if (isNew) {
 					// if new then append it to the list
 					self.libraries.push(library);
@@ -106,12 +110,6 @@
 			this.state.attr('selected').restore();
 			this.resetSelected();
 			return false;
-		},
-
-
-		'.input_name keyup': function (ele, ev) {
-			var val = ele.val();
-			this.state.attr('selected.name', val);
 		}
 
 	});
