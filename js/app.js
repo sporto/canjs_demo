@@ -31,24 +31,6 @@
 				self.libraries.replace(libraries)
 			});
 
-		},
-
-		/*********************
-		* UI Bindings
-		*********************/
-
-		'.btn_save click': function (ele, ev) {
-			var self = this;
-			
-			var model = new Library({name: this.$input.val()});
-
-			// save it
-			model.save(function (library) {
-				self.libraries.push(library);
-				self.$input.val('');
-			});
-
-			return false;
 		}
 
 	});
