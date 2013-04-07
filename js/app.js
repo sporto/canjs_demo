@@ -36,7 +36,7 @@
 
 			// load the libraries from the server
 			var pro = Library.findAll({}, function(libraries) {
-				self.libraries.push.apply(self.libraries, libraries);
+				self.libraries.replace(libraries)
 			});
 
 			// listen for when the selected model is changed
