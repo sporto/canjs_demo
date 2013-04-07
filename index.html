@@ -15,26 +15,13 @@
 
 		<form class="row panel">
 			<div class="large-2 columns">
-				{{^state.isEditing}}
 				<h4>Add new</h4>
-				{{/state.isEditing}}
-
-				{{#state.isEditing}}
-				<h4>Edit {{state.selected.id}}</h4>
-				{{/state.isEditing}}
 			</div>
 			<div class="large-4 columns">
 				<input type="text" class="input_name large-12 columns" />
 			</div>
 			<div class="large-6 columns">
-				{{^state.isEditing}}
 				<button class="button small btn_save">Add</button>
-				{{/state.isEditing}}
-
-				{{#state.isEditing}}
-				<button class="button small btn_save">Save</button>
-				<button class="button small btn_cancel_edit">Cancel</button>
-				{{/state.isEditing}}
 			</div>
 		</form>
 
@@ -53,8 +40,7 @@
 						<td><strong>{{name}}</strong></td>
 						<td><a href="{{web}}" target="_blank">{{web}}</a></td>
 						<td>
-							<a {{data 'library'}} href="#" class="btn_edit">Edit</a>
-							<a {{data 'library'}} href="#" class="btn_remove">Remove</a>
+							<a {{data 'library'}} href="javascript://" class="btn_remove">Remove</a>
 						</td>
 					</tr>
 					{{/libraries}}
