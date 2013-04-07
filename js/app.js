@@ -18,7 +18,7 @@
 			this.libraries = new Library.List([]);
 
 			// compile the template
-			var template = can.view("#template", {libraries: this.libraries, state: this.state});
+			var template = can.view("#template", {libraries: this.libraries});
 			
 			// append the view to the DOM
 			can.$(ele).append(template);
